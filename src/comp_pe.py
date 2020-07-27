@@ -3,8 +3,6 @@
 STOCKS_BY_INDUSTRY = dict(basic_materials_sector=[["asix", "advansix inc"], ["aem", "agnico eagle mines limited"],
                                                   ["apd", "air products and chemicals, inc"]])
 
-GROWTH_SEARCH_MARGIN = 4
-
 
 def find_price(stock_abbr):
     """returns most recent price of given stock"""
@@ -50,12 +48,12 @@ def _percent_average_growth(stock_abbr, start_date, end_date):
         average_growth += (earnings_list(x - 1) - earnings_list(x)) / earnings_list(x - 1)
 
     # num of growths is 1 less than number of earnings data points, bc growth is between points
-    average_growth / (len(earnings_list) - 1)
+    average_growth /= (len(earnings_list) - 1)
 
     return average_growth
 
 
-def compare_pe(stock_abbr, industry, start_date, end_date, average_growth_type):
+def compare_pe(stock_abbr, industry, start_date, end_date, average_growth):
     """
         returns difference between multiple points of given stock and average for stocks in same industry with similar growth
     """
@@ -76,13 +74,16 @@ def compare_pe(stock_abbr, industry, start_date, end_date, average_growth_type):
 
     industry_average_price_earnings_ratio = 0
 
-    matching_stocks_count = 0
+    industry_average_growth = 0
 
     for industry_stock in STOCKS_BY_INDUSTRY[industry]:
-        if abs(stock_average_growth - average_growth(industry_stock, start_date, end_date)) <= GROWTH_SEARCH_MARGIN:
-            industry_average_price_earnings_ratio += find_price(stock_abbr) / find_earnings(stock_abbr)
-            matching_stocks_count += 1
-    industry_average_price_earnings_ratio /= matching_stocks_count
+        industry_average_price_earnings_ratio += find_price(industry_stock[0]) / find_earnings(industry_stock[0])
+        industry_average_growth += average_growth(industry_stock[0], start_date, end_date)
 
-    return stock_price_earnings_ratio - industry_average_price_earnings_ratio
+    industry_average_price_earnings_ratio /= len(STOCKS_BY_INDUSTRY[industry])
+
+    industry_average_growth /= len(STOCKS_BY_INDUSTRY[industry]) - 1
+
+    return (stock_price_earnings_ratio / stock_average_growth) - (industry_average_price_earnings_ratio /
+                                                                  industry_average_growth)
 
