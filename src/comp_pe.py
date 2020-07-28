@@ -1,6 +1,6 @@
 
 
-STOCKS_BY_INDUSTRY = dict(basic_materials_sector=[["asix", "advansix inc"], ["aem", "agnico eagle mines limited"],
+STOCKS_BY_INDUSTRY = dict(BASIC_MATERIALS_SECTOR=[["asix", "advansix inc"], ["aem", "agnico eagle mines limited"],
                                                   ["apd", "air products and chemicals, inc"]])
 
 
