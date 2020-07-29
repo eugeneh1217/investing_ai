@@ -14,7 +14,7 @@ class StockMarketEnv:
     def buy(self, symbol, shares):
         """buy given number of shares of given stock"""
 
-        self.buying_power -= find_price(symbol)
+        self.buying_power -= find_price(symbol) * shares
 
         # if not enough buying_power
         if self.buying_power < 0:
@@ -57,7 +57,7 @@ class StockMarketEnv:
     def step(self, buy_list, sell_list):
         """
             Steps environment forward one time step
-            Makes transactions in buy and sell list (lists of tuples of format (symbol, shares)
+            Makes transactions in buy and sell list (lists of tuples of format (symbol, shares))
         """
 
         self.elapsed_time += 1
