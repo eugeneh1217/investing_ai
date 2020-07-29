@@ -1,38 +1,13 @@
-
+import src.data as data
 
 STOCKS_BY_INDUSTRY = dict(BASIC_MATERIALS_SECTOR=[["asix", "advansix inc"], ["aem", "agnico eagle mines limited"],
                                                   ["apd", "air products and chemicals, inc"]])
 
 
-def find_price(stock_abbr):
-    """returns most recent price of given stock"""
-    pass
-
-
-def find_price(stock_abbr, date):
-    """returns most recent price of given stock by given date"""
-    pass
-
-
-def find_earnings(stock_abbr):
-    """returns latest earnings per share of given stock"""
-    pass
-
-
-def find_earnings(stock_abbr, date):
-    """returns most recent earnings per share of given stock by given date"""
-    return 7.80
-
-
-def find_earnings_list(stock_abbr, start_date, end_date):
-    """returns list of earnings from given date to present"""
-    return [1.80, 2.65, 5.43, 2.67, 7.80]
-
-
 def _linear_average_growth(stock_abbr, start_date, end_date):
     """returns linear average growth (slope of line from starting earnings/share to current earnings/share"""
 
-    average_growth = (find_earnings(stock_abbr, end_date) - find_earnings(stock_abbr, start_date)) / \
+    average_growth = (data.find_earnings(stock_abbr, end_date) - data.find_earnings(stock_abbr, start_date)) / \
                      (end_date - start_date)
 
     return average_growth
@@ -41,7 +16,7 @@ def _linear_average_growth(stock_abbr, start_date, end_date):
 def _percent_average_growth(stock_abbr, start_date, end_date):
     """returns the average growth in percent per day"""
 
-    earnings_list = find_earnings_list(stock_abbr, start_date, end_date)
+    earnings_list = data.find_earnings_list(stock_abbr, start_date, end_date)
     average_growth = 0
 
     for x in range(1, len(earnings_list)):
@@ -70,14 +45,14 @@ def compare_pe(stock_abbr, industry, start_date, end_date, average_growth):
 
     stock_average_growth = average_growth(stock_abbr, start_date, end_date)
 
-    stock_price_earnings_ratio = find_price(stock_abbr) / find_earnings(stock_abbr)
+    stock_price_earnings_ratio = data.find_price(stock_abbr) / data.find_earnings(stock_abbr)
 
     industry_average_price_earnings_ratio = 0
 
     industry_average_growth = 0
 
     for industry_stock in STOCKS_BY_INDUSTRY[industry]:
-        industry_average_price_earnings_ratio += find_price(industry_stock[0]) / find_earnings(industry_stock[0])
+        industry_average_price_earnings_ratio += data.find_price(industry_stock[0]) / data.find_earnings(industry_stock[0])
         industry_average_growth += average_growth(industry_stock[0], start_date, end_date)
 
     industry_average_price_earnings_ratio /= len(STOCKS_BY_INDUSTRY[industry])
