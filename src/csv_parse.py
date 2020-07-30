@@ -32,7 +32,7 @@ def source():
     """
         source all the csv files from assets folder
     """
-    with open('BasicMaterialsList.csv', 'r') as read_obj:
+    with open('assets\\stocks_by_sector\\BasicMaterialsList.csv', 'r') as read_obj:
         # pass the file object to reader() to get the reader object
         csv_reader = reader(read_obj)
         # Pass reader object to list() to get a list of lists
@@ -40,55 +40,55 @@ def source():
         global BASIC_MATERIALS_SECTOR_NON_PARSED
         BASIC_MATERIALS_SECTOR_NON_PARSED = list_of_rows
 
-    with open('CommunicationServicesList.csv', 'r') as read_obj:
+    with open('assets\\stocks_by_sector\\CommunicationServicesList.csv', 'r') as read_obj:
         csv_reader = reader(read_obj)
         list_of_rows = list(csv_reader)
         global COMMUNICATION_SERVICES_SECTOR_NON_PARSED
         COMMUNICATION_SERVICES_SECTOR_NON_PARSED = list_of_rows
 
-    with open('ConsumerCyclicalList.csv', 'r') as read_obj:
+    with open('assets\\stocks_by_sector\\ConsumerCyclicalList.csv', 'r') as read_obj:
         csv_reader = reader(read_obj)
         list_of_rows = list(csv_reader)
         global CONSUMER_CYCLICAL_SECTOR_NON_PARSED
         CONSUMER_CYCLICAL_SECTOR_NON_PARSED = list_of_rows
 
-    with open('ConsumerDefensiveList.csv', 'r') as read_obj:
+    with open('assets\\stocks_by_sector\\ConsumerDefensiveList.csv', 'r') as read_obj:
         csv_reader = reader(read_obj)
         list_of_rows = list(csv_reader)
         global CONSUMER_DEFENSIVE_SECTOR_NON_PARSED
         CONSUMER_DEFENSIVE_SECTOR_NON_PARSED = list_of_rows
 
-    with open('EnergyList.csv', 'r') as read_obj:
+    with open('assets\\stocks_by_sector\\EnergyList.csv', 'r') as read_obj:
         csv_reader = reader(read_obj)
         list_of_rows = list(csv_reader)
         global ENERGY_SECTOR_NON_PARSED
         ENERGY_SECTOR_NON_PARSED = list_of_rows
 
-    with open('FinancialServicesList.csv', 'r') as read_obj:
+    with open('assets\\stocks_by_sector\\FinancialServicesList.csv', 'r') as read_obj:
         csv_reader = reader(read_obj)
         list_of_rows = list(csv_reader)
         global FINANCIAL_SERVICES_SECTOR_NON_PARSED
         FINANCIAL_SERVICES_SECTOR_NON_PARSED = list_of_rows
 
-    with open('HealthcareList.csv', 'r') as read_obj:
+    with open('assets\\stocks_by_sector\\HealthcareList.csv', 'r') as read_obj:
         csv_reader = reader(read_obj)
         list_of_rows = list(csv_reader)
         global HEALTHCARE_SECTOR_NON_PARSED
         HEALTHCARE_SECTOR_NON_PARSED = list_of_rows
 
-    with open('IndustrialsList.csv', 'r') as read_obj:
+    with open('assets\\stocks_by_sector\\IndustrialsList.csv', 'r') as read_obj:
         csv_reader = reader(read_obj)
         list_of_rows = list(csv_reader)
         global INDUSTRIALS_SECTOR_NON_PARSED
         INDUSTRIALS_SECTOR_NON_PARSED = list_of_rows
 
-    with open('TechnologyList.csv', 'r') as read_obj:
+    with open('assets\\stocks_by_sector\\TechnologyList.csv', 'r') as read_obj:
         csv_reader = reader(read_obj)
         list_of_rows = list(csv_reader)
         global TECHNOLOGY_SECTOR_NON_PARSED
         TECHNOLOGY_SECTOR_NON_PARSED = list_of_rows
 
-    with open('UtilitiesList.csv', 'r') as read_obj:
+    with open('assets\\stocks_by_sector\\UtilitiesList.csv', 'r') as read_obj:
         csv_reader = reader(read_obj)
         list_of_rows = list(csv_reader)
         global UTILITIES_SECTOR_NON_PARSED
