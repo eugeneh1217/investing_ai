@@ -94,6 +94,7 @@ def source():
         global UTILITIES_SECTOR_NON_PARSED
         UTILITIES_SECTOR_NON_PARSED = list_of_rows
 
+
 def parser_zip(csv_source, first_column, second_column):
     """
         parse a single column in the given csv_source
@@ -113,6 +114,7 @@ def parser_zip(csv_source, first_column, second_column):
 
     return total_list
 
+
 def parse_all_sectors():
     """
         parse all sectors
@@ -128,32 +130,33 @@ def parse_all_sectors():
     global TECHNOLOGY_SECTOR
     global UTILITIES_SECTOR
 
-    BASIC_MATERIALS_SECTOR = parser_zip(BASIC_MATERIALS_SECTOR_NON_PARSED,1,2)
-    COMMUNICATION_SERVICES_SECTOR = parser_zip(COMMUNICATION_SERVICES_SECTOR_NON_PARSED,1,2)
-    CONSUMER_CYCLICAL_SECTOR = parser_zip(CONSUMER_CYCLICAL_SECTOR_NON_PARSED,1,2)
-    CONSUMER_DEFENSIVE_SECTOR = parser_zip(CONSUMER_DEFENSIVE_SECTOR_NON_PARSED,1,2)
-    ENERGY_SECTOR = parser_zip(ENERGY_SECTOR_NON_PARSED,1,2)
-    FINANCIAL_SERVICES_SECTOR = parser_zip(FINANCIAL_SERVICES_SECTOR_NON_PARSED,1,2)
-    HEALTHCARE_SECTOR = parser_zip(HEALTHCARE_SECTOR_NON_PARSED,1,2)
-    INDUSTRIALS_SECTOR = parser_zip(INDUSTRIALS_SECTOR_NON_PARSED,1,2)
-    TECHNOLOGY_SECTOR = parser_zip(TECHNOLOGY_SECTOR_NON_PARSED,1,2)
-    UTILITIES_SECTOR = parser_zip(UTILITIES_SECTOR_NON_PARSED,1,2)
+    BASIC_MATERIALS_SECTOR = parser_zip(BASIC_MATERIALS_SECTOR_NON_PARSED, 1, 2)
+    COMMUNICATION_SERVICES_SECTOR = parser_zip(COMMUNICATION_SERVICES_SECTOR_NON_PARSED, 1, 2)
+    CONSUMER_CYCLICAL_SECTOR = parser_zip(CONSUMER_CYCLICAL_SECTOR_NON_PARSED, 1, 2)
+    CONSUMER_DEFENSIVE_SECTOR = parser_zip(CONSUMER_DEFENSIVE_SECTOR_NON_PARSED, 1, 2)
+    ENERGY_SECTOR = parser_zip(ENERGY_SECTOR_NON_PARSED, 1, 2)
+    FINANCIAL_SERVICES_SECTOR = parser_zip(FINANCIAL_SERVICES_SECTOR_NON_PARSED, 1, 2)
+    HEALTHCARE_SECTOR = parser_zip(HEALTHCARE_SECTOR_NON_PARSED, 1, 2)
+    INDUSTRIALS_SECTOR = parser_zip(INDUSTRIALS_SECTOR_NON_PARSED, 1, 2)
+    TECHNOLOGY_SECTOR = parser_zip(TECHNOLOGY_SECTOR_NON_PARSED, 1, 2)
+    UTILITIES_SECTOR = parser_zip(UTILITIES_SECTOR_NON_PARSED, 1, 2)
+
 
 def dictionaryC(sector_A, sector_B, sector_C, sector_D, sector_E, sector_F, sector_G, sector_H, sector_I, sector_J):
     """
-        Create the dictionary, separate method itsself means globalizing the variable
+        Create the dictionary, separate method itself means globalizing the variable
     """
     DICT = {
-        "Basic_Materials_Sector":sector_A,
-        "Communication_Services_Sector":sector_B,
-        "Consumer_Cyclical_Sector":sector_C,
-        "Consumer_Defensive_Sector":sector_D,
-        "Energy_Sector":sector_E,
-        "Financial_Services_Sector":sector_F,
-        "Healthcare_Sector":sector_G,
-        "Industrials_Sector":sector_H,
-        "Technology_Sector":sector_I,
-        "Utilities_Sector":sector_J
+        "Basic_Materials_Sector": sector_A,
+        "Communication_Services_Sector": sector_B,
+        "Consumer_Cyclical_Sector": sector_C,
+        "Consumer_Defensive_Sector": sector_D,
+        "Energy_Sector": sector_E,
+        "Financial_Services_Sector": sector_F,
+        "Healthcare_Sector": sector_G,
+        "Industrials_Sector": sector_H,
+        "Technology_Sector": sector_I,
+        "Utilities_Sector": sector_J
     }
     return DICT
 
