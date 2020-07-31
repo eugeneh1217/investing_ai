@@ -1,8 +1,12 @@
+import data
+
+
 class StockMarketEnv:
     """simple environment to simulate the stock market to test different strategies"""
 
     def __init__(self, principle):
-        self.buying_power = principle
+        self.principle = principle
+        self.buying_power = self.principle
         self.networth = 0
         # list of tuples of format (symbol, shares)
         self.owned_stocks = []
@@ -14,7 +18,7 @@ class StockMarketEnv:
     def buy(self, symbol, shares):
         """buy given number of shares of given stock"""
 
-        self.buying_power -= find_price(symbol) * shares
+        self.buying_power -= data.find_price(symbol) * shares
 
         # if not enough buying_power
         if self.buying_power < 0:
@@ -77,9 +81,16 @@ class StockMarketEnv:
         # recalculate networth
         self.networth = self.buying_power
         for stock in self.owned_stocks:
-            self.networth += stock[1] * find_price(stock[0])
+            self.networth += stock[1] * data.find_price(stock[0])
 
         # record networth
         self.history[0][len[self.history[1]] - 1] = self.networth
 
         return self.history[0][len[self.history[1]] - 1], self.history[1][len[self.history[1]] - 1]
+
+    def reset(self):
+        self.buying_power = self.principle
+        self.networth = 0
+        self.owned_stocks = []
+        self.elapsed_time = 0
+        self.history = [[], []]
