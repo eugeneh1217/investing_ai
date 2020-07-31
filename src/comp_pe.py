@@ -1,4 +1,4 @@
-import src.data as data
+import data as data
 
 STOCKS_BY_INDUSTRY = dict(BASIC_MATERIALS_SECTOR=[["asix", "advansix inc"], ["aem", "agnico eagle mines limited"],
                                                   ["apd", "air products and chemicals, inc"]])
