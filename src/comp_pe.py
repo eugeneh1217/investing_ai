@@ -28,16 +28,16 @@ def _percent_average_growth(stock_abbr, start_date, end_date):
     return average_growth
 
 
-def compare_pe(stock_abbr, industry, start_date, end_date, average_growth):
+def compare_pe(stock_abbr, industry, start_date, end_date, average_growth_type):
     """
         returns difference between multiple points of given stock and average for stocks in same industry with similar growth
     """
 
-    average_growth = 0
+    average_growth = None
 
-    if average_growth == "LINEAR":
+    if average_growth_type == "LINEAR":
         average_growth = _linear_average_growth()
-    elif average_growth == "PERCENT":
+    elif average_growth_type == "PERCENT":
         average_growth = _percent_average_growth()
     else:
         print("ERROR: specified average growth type not supported")
